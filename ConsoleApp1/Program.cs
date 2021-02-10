@@ -7,7 +7,6 @@ namespace IteratorTest
 {
 	class Program
 	{
-        /* Driver program to test above function */
         public static void Main()
         {
             var s = File.OpenRead("TextFile1.txt");
@@ -32,10 +31,13 @@ namespace IteratorTest
                 do
                 {
                     line = reader.ReadLine();
-                    int temp;
-                    if (int.TryParse(line, out temp))
+                    if (!string.IsNullOrEmpty(line))
                     {
-                        yield return temp;
+                        int temp;
+                        if (int.TryParse(line.Trim(), out temp))
+                        {
+                            yield return temp;
+                        }
                     }
                 } while (!string.IsNullOrEmpty(line));
             }
@@ -46,10 +48,13 @@ namespace IteratorTest
                 do
                 {
                     line = reader.ReadLine();
-                    int temp;
-                    if (int.TryParse(line, out temp))
+                    if (!string.IsNullOrEmpty(line))
                     {
-                        yield return temp;
+                        int temp;
+                        if (int.TryParse(line.Trim(), out temp))
+                        {
+                            yield return temp;
+                        }
                     }
                 } while (!string.IsNullOrEmpty(line));
             }
